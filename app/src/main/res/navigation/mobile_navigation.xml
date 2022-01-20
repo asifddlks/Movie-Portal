@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.asifddlks.icinema.ui.home.HomeFragment"
+        android:name="com.asifddlks.icinema.views.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_explore"
-        android:name="com.asifddlks.icinema.ui.explore.ExploreFragment"
+        android:name="com.asifddlks.icinema.views.ExploreFragment"
         android:label="@string/title_explore"
         tools:layout="@layout/fragment_explore" />
 
     <fragment
         android:id="@+id/navigation_watchlist"
-        android:name="com.asifddlks.icinema.ui.watchlist.WatchlistFragment"
+        android:name="com.asifddlks.icinema.views.WatchlistFragment"
         android:label="@string/title_watchlist"
         tools:layout="@layout/fragment_watchlist" />
 </navigation>

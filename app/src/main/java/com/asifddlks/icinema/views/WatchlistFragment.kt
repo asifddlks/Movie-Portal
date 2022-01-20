@@ -1,4 +1,4 @@
-package com.asifddlks.icinema.ui.watchlist
+package com.asifddlks.icinema.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.asifddlks.icinema.databinding.FragmentWatchlistBinding
+import com.asifddlks.icinema.viewmodels.WatchlistViewModel
 
 class WatchlistFragment : Fragment() {
 

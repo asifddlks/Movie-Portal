@@ -16,10 +16,12 @@
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/drawable/ic_home_fill.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21574074074074073" />
+        <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.1962962962962963" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/drawable/ic_profile_fill.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/drawable/ic_round.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1962962962962963" />
         <entry key="app/src/main/res/drawable/layer_home.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/drawable/profile.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/drawable/profile_fill.xml" value="0.21574074074074073" />
@@ -30,7 +32,7 @@
         <entry key="app/src/main/res/drawable/selector_watchlist.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/font/advent_pro.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15353260869565216" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.14447463768115942" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_watchlist.xml" value="0.14447463768115942" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2328125" />
       </map>
