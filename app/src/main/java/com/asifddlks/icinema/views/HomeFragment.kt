@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
+import com.asifddlks.icinema.adapter.HomeViewPagerAdapter
 import com.asifddlks.icinema.databinding.FragmentHomeBinding
 import com.asifddlks.icinema.network.ApiClient
 import com.asifddlks.icinema.viewmodels.HomeViewModel
@@ -39,12 +41,32 @@ class HomeFragment : Fragment() {
         })
 
         //testAPI()
+        loadViewPager()
         return root
+    }
+
+    private fun loadViewPager() {
+        //binding.viewPager.adapter = HomeViewPagerAdapter()
+
+
+        binding.viewPager.apply {
+            offscreenPageLimit = 1
+            val recyclerView = getChildAt(0) as RecyclerView
+            recyclerView.apply {
+                val padding = 80
+                setPadding(padding, 0, padding, 0)
+                clipToPadding = false
+            }
+            adapter = HomeViewPagerAdapter()
+        }
+        binding.indicator.setViewPager(binding.viewPager)
+        binding.viewPager.currentItem = 1
     }
 
     private fun testAPI() {
         Log.d(TAG, "testAPI")
-        ApiClient().get(requireContext(),
+        ApiClient().get(
+            requireContext(),
             "https://reqres.in/api/users?page=2",
             false,
             object : ApiClient.OnApiCallbackEventListener {

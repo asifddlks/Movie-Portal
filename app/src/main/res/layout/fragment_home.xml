@@ -8,16 +8,17 @@
     tools:context=".views.HomeFragment">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:gravity="center"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_view_title"
+            android:id="@+id/textViewTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -28,7 +29,7 @@
             android:textSize="28sp" />
 
         <ImageView
-            android:id="@+id/image_view_search"
+            android:id="@+id/imageViewSearch"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
@@ -36,7 +37,7 @@
             android:src="@drawable/ic_search" />
 
         <ImageView
-            android:id="@+id/image_view_notification"
+            android:id="@+id/imageViewNotification"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
@@ -44,13 +45,41 @@
             android:src="@drawable/ic_notification" />
 
         <ImageView
-            android:id="@+id/image_view_red_badge"
+            android:id="@+id/imageViewRedBadge"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_gravity="top"
             android:layout_margin="5dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_red_dot" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="0dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:visibility="visible"
+            app:ci_drawable="@drawable/ic_red_dot" />
 
     </LinearLayout>
 
