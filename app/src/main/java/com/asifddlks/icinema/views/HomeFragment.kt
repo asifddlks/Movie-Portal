@@ -30,8 +30,7 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -40,7 +39,7 @@ class HomeFragment : Fragment() {
             binding.textViewTitle.text = it
         })
 
-        //testAPI()
+        testAPI()
         loadViewPager()
         return root
     }
@@ -67,8 +66,8 @@ class HomeFragment : Fragment() {
         Log.d(TAG, "testAPI")
         ApiClient().get(
             requireContext(),
-            "https://reqres.in/api/users?page=2",
-            false,
+            "https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/inception",
+            true,
             object : ApiClient.OnApiCallbackEventListener {
                 override fun onSuccess(response: String?) {
                     Log.d(TAG, "onSuccess ${response}")

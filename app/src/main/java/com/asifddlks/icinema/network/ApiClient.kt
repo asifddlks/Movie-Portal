@@ -12,7 +12,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.asifddlks.icinema.AppPrefs
 import com.asifddlks.icinema.R
 import com.google.gson.Gson
 import org.json.JSONObject
@@ -24,8 +23,8 @@ import java.util.*
 //
 class ApiClient {
     private val VOLLEY_TIMEOUT_MS = 30000
-    var HeaderKey = "Authorization"
-    var SessionKey = "Session"
+    private var HEADER_HOST = "x-rapidapi-host"
+    private var HEADER_KEY = "x-rapidapi-key"
     private lateinit var mOnApiCallbackEventListener: OnApiCallbackEventListener
 
     // Gets StringObject
@@ -52,9 +51,12 @@ class ApiClient {
                     val params: MutableMap<String, String> = HashMap()
                     if (useHeader) {
                         try {
-                            params[HeaderKey] = "bearer " + AppPrefs(context).getAccessToken()
+                            params[HEADER_HOST] =
+                                "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+                            params[HEADER_KEY] =
+                                "cae8a47fa5msh4d51b8f3ebf34e6p1de900jsnb5bae7d3f668"
                         } catch (ex: Exception) {
-                            //TODO: catch
+                            Log.e("ApiClient", "error: " + ex.localizedMessage)
                         }
                     }
                     return params
@@ -100,8 +102,6 @@ class ApiClient {
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
-
-                    //onApiCallbackEventListener.onFailure(error.getLocalizedMessage());
                 }
             ) {
                 override fun getParams(): Map<String, String>? {
@@ -113,9 +113,12 @@ class ApiClient {
                     val params: MutableMap<String, String> = HashMap()
                     if (useHeader) {
                         try {
-                            params[HeaderKey] = "bearer " + AppPrefs(context).getAccessToken()
+                            params[HEADER_HOST] =
+                                "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+                            params[HEADER_KEY] =
+                                "cae8a47fa5msh4d51b8f3ebf34e6p1de900jsnb5bae7d3f668"
                         } catch (ex: Exception) {
-                            //TODO: catch
+                            Log.e("ApiClient", "error: " + ex.localizedMessage)
                         }
                     }
                     return params
