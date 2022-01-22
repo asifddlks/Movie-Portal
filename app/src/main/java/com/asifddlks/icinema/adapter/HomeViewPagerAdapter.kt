@@ -10,7 +10,8 @@ import com.asifddlks.icinema.databinding.AdapterHomeViewPagerBinding
 //
 class HomeViewPagerAdapter() : RecyclerView.Adapter<HomeViewPagerAdapter.ViewPagerViewHolder>() {
 
-    private val dataList: List<String> = mutableListOf("one", "two", "three")
+    private val dataList: List<String> =
+        mutableListOf("Inception", "Spider-Man: No Way Home", "Captain Marvel")
 
     class ViewPagerViewHolder(val binding: AdapterHomeViewPagerBinding) :
         RecyclerView.ViewHolder(binding.root) {
