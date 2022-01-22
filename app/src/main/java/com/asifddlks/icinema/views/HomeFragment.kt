@@ -50,6 +50,10 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_navigation_home_to_notification_fragment)
         }
 
+        binding.imageViewGenre.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_genre_fragment)
+        }
+
         testAPI()
         loadViewPager()
         loadContinueWatch()
