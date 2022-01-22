@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.asifddlks.icinema.adapter.ContinueWatchAdapter
 import com.asifddlks.icinema.adapter.HomeViewPagerAdapter
 import com.asifddlks.icinema.databinding.FragmentHomeBinding
 import com.asifddlks.icinema.network.ApiClient
@@ -41,7 +42,12 @@ class HomeFragment : Fragment() {
 
         testAPI()
         loadViewPager()
+        loadContinueWatch()
         return root
+    }
+
+    private fun loadContinueWatch() {
+        binding.recyclerViewContinueWatch.adapter = ContinueWatchAdapter()
     }
 
     private fun loadViewPager() {
