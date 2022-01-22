@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.asifddlks.icinema.R
 import com.asifddlks.icinema.adapter.ContinueWatchAdapter
 import com.asifddlks.icinema.adapter.HomeViewPagerAdapter
 import com.asifddlks.icinema.databinding.FragmentHomeBinding
@@ -39,6 +41,14 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             binding.textViewTitle.text = it
         })
+
+        binding.imageViewSearch.setOnClickListener {
+            findNavController().navigate(R.id.navigation_explore)
+        }
+
+        binding.imageViewNotification.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_notification_fragment)
+        }
 
         testAPI()
         loadViewPager()
