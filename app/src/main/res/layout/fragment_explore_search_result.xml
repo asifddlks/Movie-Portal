@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_blue_2"
-    tools:context=".views.ExploreFragment">
+    tools:context=".views.ExploreSearchResultFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"

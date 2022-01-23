@@ -58,4 +58,7 @@ dependencies {
 
     // ViewPager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    //Progress Dialog (Loader) library
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
 }

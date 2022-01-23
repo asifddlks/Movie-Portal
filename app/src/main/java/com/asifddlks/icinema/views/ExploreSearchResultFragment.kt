@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -16,7 +15,7 @@ import com.asifddlks.icinema.databinding.FragmentExploreBinding
 import com.asifddlks.icinema.viewmodels.ExploreViewModel
 
 
-class ExploreFragment : Fragment() {
+class ExploreSearchResultFragment : Fragment() {
 
     private lateinit var exploreViewModel: ExploreViewModel
     private var _binding: FragmentExploreBinding? = null
@@ -26,15 +25,17 @@ class ExploreFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         exploreViewModel =
             ViewModelProvider(this).get(ExploreViewModel::class.java)
 
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        binding.editTextSearch.setText(arguments?.getString("query"))
 
         initListeners()
 
@@ -46,12 +47,7 @@ class ExploreFragment : Fragment() {
             if (binding.buttonCancel.text.equals(getString(R.string.cancel))) {
                 findNavController().popBackStack()
             } else {
-                val query = binding.editTextSearch.text
-                val bundle = bundleOf("query" to query)
-                findNavController().navigate(
-                    R.id.action_navigation_explore_to_explore_search_result_fragment,
-                    bundle
-                )
+
             }
 
         }
@@ -76,12 +72,7 @@ class ExploreFragment : Fragment() {
         binding.editTextSearch.setOnEditorActionListener { view, actionId, keyEvent ->
             var handled = false
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                val query = binding.editTextSearch.text
-                val bundle = bundleOf("query" to query)
-                findNavController().navigate(
-                    R.id.action_navigation_explore_to_explore_search_result_fragment,
-                    bundle
-                )
+
             }
             handled
         }

@@ -39,6 +39,9 @@
         <entry key="app/src/main/res/font/advent_pro.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15353260869565216" />
         <entry key="app/src/main/res/layout/adapter_home_view_pager.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/dialog_progress_loader.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_explore.xml" value="0.2015561261448522" />
+        <entry key="app/src/main/res/layout/fragment_explore_search_result.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2273689208509015" />
         <entry key="app/src/main/res/layout/fragment_watchlist.xml" value="0.14447463768115942" />
         <entry key="app/src/main/res/layout/genre_fragment.xml" value="0.11322188449848024" />

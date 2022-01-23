@@ -42,8 +42,17 @@ class HomeFragment : Fragment() {
             binding.textViewTitle.text = it
         })
 
+        initListeners()
+
+        testAPI()
+        loadViewPager()
+        loadContinueWatch()
+        return root
+    }
+
+    private fun initListeners() {
         binding.imageViewSearch.setOnClickListener {
-            findNavController().navigate(R.id.navigation_explore)
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_explore)
         }
 
         binding.imageViewNotification.setOnClickListener {
@@ -53,11 +62,6 @@ class HomeFragment : Fragment() {
         binding.imageViewGenre.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_genre_fragment)
         }
-
-        testAPI()
-        loadViewPager()
-        loadContinueWatch()
-        return root
     }
 
     private fun loadContinueWatch() {
