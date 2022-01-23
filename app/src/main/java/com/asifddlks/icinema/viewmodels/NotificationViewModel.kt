@@ -1,4 +1,4 @@
-package com.asifddlks.icinema
+package com.asifddlks.icinema.viewmodels
 
 import androidx.lifecycle.ViewModel
 

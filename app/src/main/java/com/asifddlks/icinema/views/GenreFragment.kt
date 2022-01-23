@@ -1,4 +1,4 @@
-package com.asifddlks.icinema
+package com.asifddlks.icinema.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.asifddlks.icinema.databinding.NotificationFragmentBinding
+import com.asifddlks.icinema.databinding.GenreFragmentBinding
+import com.asifddlks.icinema.viewmodels.GenreViewModel
 
-class NotificationFragment : Fragment() {
+class GenreFragment : Fragment() {
 
-    private lateinit var viewModel: NotificationViewModel
+    private lateinit var viewModel: GenreViewModel
 
-    private var _binding: NotificationFragmentBinding? = null
+    private var _binding: GenreFragmentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,9 +25,9 @@ class NotificationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //return inflater.inflate(R.layout.notification_fragment, container, false)
-        viewModel = ViewModelProvider(this).get(NotificationViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(GenreViewModel::class.java)
 
-        _binding = NotificationFragmentBinding.inflate(inflater, container, false)
+        _binding = GenreFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.imageViewBack.setOnClickListener {
