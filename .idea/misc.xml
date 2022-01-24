@@ -46,7 +46,7 @@
         <entry key="app/src/main/res/layout/fragment_watchlist.xml" value="0.14447463768115942" />
         <entry key="app/src/main/res/layout/genre_fragment.xml" value="0.11322188449848024" />
         <entry key="app/src/main/res/layout/item_continue_watch.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/item_movie_search.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_movie_search.xml" value="0.11" />
         <entry key="app/src/main/res/layout/notification_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2328125" />
       </map>

@@ -61,10 +61,10 @@ class MovieSearchAdapter() : RecyclerView.Adapter<MovieSearchAdapter.ViewPagerVi
 
                     var genre = "";
                     for (gen in movie.gen) {
-                        genre = "${gen.genre},"
+                        genre = "${genre},${gen.genre}"
                     }
-                    if (genre.endsWith(",")) {
-                        genre.dropLast(1)
+                    if (genre.startsWith(",")) {
+                        genre = genre.drop(1)
                     }
 
                     binding.apply {
