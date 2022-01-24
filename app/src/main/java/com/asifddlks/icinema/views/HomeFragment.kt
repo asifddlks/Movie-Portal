@@ -89,8 +89,7 @@ class HomeFragment : Fragment() {
     private fun testAPI() {
         Log.d(TAG, "testAPI")
         ApiClient().get(
-            requireContext(),
-            "https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/inception",
+            "https://data-imdb1.p.rapidapi.com/movie/imdb_id/byTitle/Matrix/",
             true,
             object : ApiClient.OnApiCallbackEventListener {
                 override fun onSuccess(response: String?) {

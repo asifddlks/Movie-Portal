@@ -45,6 +45,7 @@
             android:lines="1"
             android:textColor="@color/white"
             android:textColorHint="@color/gray"
+            android:importantForAutofill="no"
             android:textSize="16sp">
 
         </EditText>
@@ -57,11 +58,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Cancel"
+        android:text="@string/cancel"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardView2"></Button>
+        app:layout_constraintTop_toTopOf="@+id/cardView2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        tools:listitem="@layout/item_movie_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

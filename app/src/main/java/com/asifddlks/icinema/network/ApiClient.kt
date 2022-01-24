@@ -12,6 +12,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.asifddlks.icinema.MovieApplication
 import com.asifddlks.icinema.R
 import com.google.gson.Gson
 import org.json.JSONObject
@@ -23,19 +24,20 @@ import java.util.*
 //
 class ApiClient {
     private val VOLLEY_TIMEOUT_MS = 30000
-    private var HEADER_HOST = "x-rapidapi-host"
-    private var HEADER_KEY = "x-rapidapi-key"
+    private val HEADER_HOST = "x-rapidapi-host"
+    private val host_value = "data-imdb1.p.rapidapi.com"
+    private val HEADER_KEY = "x-rapidapi-key"
+    private val header_key_value = "cae8a47fa5msh4d51b8f3ebf34e6p1de900jsnb5bae7d3f668"
     private lateinit var mOnApiCallbackEventListener: OnApiCallbackEventListener
 
     // Gets StringObject
     operator fun get(
-        context: Context,
         requestURL: String,
         useHeader: Boolean,
         onApiCallbackEventListener: OnApiCallbackEventListener
     ) {
         Log.d("ApiClient", "url: $requestURL")
-        if (isInternetConnected(context, true)) {
+        if (isInternetConnected(MovieApplication.appContext, true)) {
             val stringRequest: StringRequest = object : StringRequest(
                 Method.GET, requestURL,
                 Response.Listener { response ->
@@ -52,9 +54,9 @@ class ApiClient {
                     if (useHeader) {
                         try {
                             params[HEADER_HOST] =
-                                "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+                                host_value
                             params[HEADER_KEY] =
-                                "cae8a47fa5msh4d51b8f3ebf34e6p1de900jsnb5bae7d3f668"
+                                header_key_value
                         } catch (ex: Exception) {
                             Log.e("ApiClient", "error: " + ex.localizedMessage)
                         }
@@ -67,7 +69,7 @@ class ApiClient {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
             )
-            val requestQueue = Volley.newRequestQueue(context)
+            val requestQueue = Volley.newRequestQueue(MovieApplication.appContext)
             requestQueue.add(stringRequest)
         } else {
             onApiCallbackEventListener.onFailure("No internet")
@@ -76,14 +78,13 @@ class ApiClient {
 
     // Posts StringObject
     fun post(
-        context: Context,
         requestURL: String,
         parameters: Map<String, String>?,
         useHeader: Boolean,
         onApiCallbackEventListener: OnApiCallbackEventListener
     ) {
         Log.d("ApiClient", "url: $requestURL")
-        if (isInternetConnected(context, true)) {
+        if (isInternetConnected(MovieApplication.appContext, true)) {
             val stringRequest: StringRequest = object : StringRequest(
                 Method.POST, requestURL,
                 Response.Listener { response ->
@@ -114,7 +115,7 @@ class ApiClient {
                     if (useHeader) {
                         try {
                             params[HEADER_HOST] =
-                                "imdb-internet-movie-database-unofficial.p.rapidapi.com"
+                                "data-imdb1.p.rapidapi.com"
                             params[HEADER_KEY] =
                                 "cae8a47fa5msh4d51b8f3ebf34e6p1de900jsnb5bae7d3f668"
                         } catch (ex: Exception) {
@@ -129,7 +130,7 @@ class ApiClient {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
             )
-            val requestQueue = Volley.newRequestQueue(context)
+            val requestQueue = Volley.newRequestQueue(MovieApplication.appContext)
             requestQueue.add(stringRequest)
         } else {
             onApiCallbackEventListener.onFailure("No internet")
@@ -139,14 +140,13 @@ class ApiClient {
 
     // Posts StringObject
     fun postWithRawBody(
-        context: Context,
         requestURL: String,
         jsonObject: JSONObject?,
         useHeader: Boolean,
         onApiCallbackEventListener: OnApiCallbackEventListener
     ) {
         Log.d("ApiClient", "url: $requestURL")
-        if (isInternetConnected(context, true)) {
+        if (isInternetConnected(MovieApplication.appContext, true)) {
             val jsonObjectRequest = JsonObjectRequest(
                 Request.Method.POST, requestURL, jsonObject,
                 { response ->
@@ -174,7 +174,7 @@ class ApiClient {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
             )
-            val requestQueue = Volley.newRequestQueue(context)
+            val requestQueue = Volley.newRequestQueue(MovieApplication.appContext)
             requestQueue.add(jsonObjectRequest)
         } else {
             onApiCallbackEventListener.onFailure("No internet")
@@ -187,7 +187,11 @@ class ApiClient {
             return true
         } else {
             if (isNoInternetToast) {
-                Toast.makeText(context, R.string.check_your_internet_connection, Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    MovieApplication.appContext,
+                    R.string.check_your_internet_connection,
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
             return false

@@ -1,5 +1,6 @@
 package com.asifddlks.icinema.views
 
+import android.app.Dialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,36 +9,60 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.asifddlks.icinema.R
-import com.asifddlks.icinema.databinding.FragmentExploreBinding
-import com.asifddlks.icinema.viewmodels.ExploreViewModel
+import com.asifddlks.icinema.adapter.MovieSearchAdapter
+import com.asifddlks.icinema.databinding.FragmentExploreSearchResultBinding
+import com.asifddlks.icinema.helpers.DialogHelper
+import com.asifddlks.icinema.viewmodels.ExploreSearchResultViewModel
 
 
 class ExploreSearchResultFragment : Fragment() {
 
-    private lateinit var exploreViewModel: ExploreViewModel
-    private var _binding: FragmentExploreBinding? = null
+    val TAG = this.javaClass.simpleName
+
+    private lateinit var viewModel: ExploreSearchResultViewModel
+    private var _binding: FragmentExploreSearchResultBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val adapter = MovieSearchAdapter()
+
+    lateinit var dialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        exploreViewModel =
-            ViewModelProvider(this).get(ExploreViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ExploreSearchResultViewModel::class.java)
 
-        _binding = FragmentExploreBinding.inflate(inflater, container, false)
+        _binding = FragmentExploreSearchResultBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.editTextSearch.setText(arguments?.getString("query"))
 
+        binding.recyclerView.adapter = adapter
+
         initListeners()
+
+        viewModel.movieList.observe(viewLifecycleOwner, Observer {
+            adapter.setMovieList(it)
+            dialog.dismiss()
+        })
+
+        viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
+            dialog.dismiss()
+        })
+
+        dialog = DialogHelper(requireContext()).showLoaderDialog()
+        dialog.show()
+        viewModel.searchMovie(binding.editTextSearch.text.toString())
+
+
 
         return root
     }

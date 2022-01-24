@@ -46,7 +46,7 @@ class ExploreFragment : Fragment() {
             if (binding.buttonCancel.text.equals(getString(R.string.cancel))) {
                 findNavController().popBackStack()
             } else {
-                val query = binding.editTextSearch.text
+                val query = binding.editTextSearch.text.toString()
                 val bundle = bundleOf("query" to query)
                 findNavController().navigate(
                     R.id.action_navigation_explore_to_explore_search_result_fragment,
@@ -76,7 +76,7 @@ class ExploreFragment : Fragment() {
         binding.editTextSearch.setOnEditorActionListener { view, actionId, keyEvent ->
             var handled = false
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                val query = binding.editTextSearch.text
+                val query = binding.editTextSearch.text.toString()
                 val bundle = bundleOf("query" to query)
                 findNavController().navigate(
                     R.id.action_navigation_explore_to_explore_search_result_fragment,
