@@ -1,7 +1,6 @@
 package com.asifddlks.icinema.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import com.asifddlks.icinema.R
 import com.asifddlks.icinema.adapter.ContinueWatchAdapter
 import com.asifddlks.icinema.adapter.HomeViewPagerAdapter
 import com.asifddlks.icinema.databinding.FragmentHomeBinding
-import com.asifddlks.icinema.network.ApiClient
 import com.asifddlks.icinema.viewmodels.HomeViewModel
 
 class HomeFragment : Fragment() {
@@ -44,7 +42,6 @@ class HomeFragment : Fragment() {
 
         initListeners()
 
-        testAPI()
         loadViewPager()
         loadContinueWatch()
         return root
@@ -84,22 +81,6 @@ class HomeFragment : Fragment() {
         }
         binding.indicator.setViewPager(binding.viewPager)
         binding.viewPager.currentItem = 1
-    }
-
-    private fun testAPI() {
-        Log.d(TAG, "testAPI")
-        ApiClient().get(
-            "https://data-imdb1.p.rapidapi.com/movie/imdb_id/byTitle/Matrix/",
-            true,
-            object : ApiClient.OnApiCallbackEventListener {
-                override fun onSuccess(response: String?) {
-                    Log.d(TAG, "onSuccess ${response}")
-                }
-
-                override fun onFailure(error: String?) {
-                    Log.e(TAG, "onFailure ${error}")
-                }
-            })
     }
 
     override fun onDestroyView() {
