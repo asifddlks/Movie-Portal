@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
-    android:background="@color/dark_blue">
+    tools:background="@color/dark_blue">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
@@ -58,6 +58,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardView3">
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,6 +67,7 @@
             tools:text="TextView Movie" />
 
         <TextView
+            android:layout_marginTop="3dp"
             android:id="@+id/textViewDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
