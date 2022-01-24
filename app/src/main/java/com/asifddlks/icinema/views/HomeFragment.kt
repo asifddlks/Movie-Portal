@@ -66,9 +66,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadViewPager() {
-        //binding.viewPager.adapter = HomeViewPagerAdapter()
-
-
         binding.viewPager.apply {
             offscreenPageLimit = 1
             val recyclerView = getChildAt(0) as RecyclerView
